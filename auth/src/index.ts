@@ -1,3 +1,4 @@
+import 'express-async-errors';
 import express, { json } from 'express';
 import { currentUserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';
@@ -6,7 +7,6 @@ import { signupRouter } from './routes/signup';
 import { errorHandler } from './middlewares/error-handler';
 import { NotFoundError } from './errors/not-found-error';
 import * as mongoose from 'mongoose';
-import 'express-async-errors';
 
 const app = express();
 app.use(json());
