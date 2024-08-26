@@ -20,7 +20,7 @@ app.use(currentUser);
 app.use(indexOrderRouter);
 app.use(newOrderRouter);
 app.use(showOrderRouter);
-app.use(deleteOrderRouterc);
+app.use(deleteOrderRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
