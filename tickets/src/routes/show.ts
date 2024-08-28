@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { Ticket } from '../../models/ticket';
+import { Ticket } from '../models/ticket';
 import { NotFoundError } from '@emitsianis-gittix/common';
 
 const router = Router();

@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
 import { NotAuthorizedError, NotFoundError, requireAuth, validateRequest } from '@emitsianis-gittix/common';
-import { Ticket } from '../../models/ticket';
+import { Ticket } from '../models/ticket';
 import { body } from 'express-validator';
 import { TicketUpdatedPublisher } from '../events/publishers/ticket-updated-publisher';
 import { natsWrapper } from '../nats-wrapper';
