@@ -2,6 +2,7 @@ import 'express-async-errors';
 import express, { json } from 'express';
 import cookieSession from 'cookie-session';
 import { currentUser, errorHandler, NotFoundError } from '@emitsianis-gittix/common';
+import { createChargeRouter } from './routes/new';
 
 const app = express();
 app.set('trust proxy', true);
@@ -12,6 +13,8 @@ app.use(cookieSession({
 }));
 
 app.use(currentUser);
+
+app.use(createChargeRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();
