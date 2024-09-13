@@ -9,11 +9,12 @@ import {
 } from '@emitsianis-gittix/common';
 import { body } from 'express-validator';
 import { Order } from '../models/order';
+import { stripe } from '../stripe';
 
 const router = express.Router();
 
 router.post(
-  '/api/payments/new',
+  '/api/payments',
   requireAuth,
   [
     body('token').not().isEmpty(),
@@ -37,7 +38,13 @@ router.post(
       throw new BadRequestError('Cannot pay for an cancelled order');
     }
 
-    res.send({ success: true });
+    await stripe.charges.create({
+      currency: 'eur',
+      amount: order.price * 100,
+      source: token,
+    });
+
+    res.status(201).send({ success: true });
   },
 );
 
