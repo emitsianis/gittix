@@ -3,6 +3,8 @@ name: tests-auth
 on:
   pull_request:
     branches: [ "master" ]
+    paths:
+      - "auth/**"
 
 jobs:
   build:
