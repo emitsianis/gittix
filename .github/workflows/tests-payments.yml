@@ -1,0 +1,15 @@
+name: tests-payments
+
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test payments service
+        run: cd payments && npm i && npm run test:ci
